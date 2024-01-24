@@ -47,40 +47,6 @@ services:
       - mynet
 
 
-  redis:
-    container_name: redis
-    image: redis
-    ports:
-      - 6379:6379
-    restart: always
-    networks:
-      - mynet
-  cache:
-    container_name: redis-cache
-    image: redis
-    ports:
-      - 6480:6379
-    restart: always
-    networks:
-      - mynet
-
-  backend:
-    container_name: backend
-    image: zvyg1023/shopping-mall
-    expose:
-      - 8080
-    ports:
-      - 8080:8080
-    restart: always
-    depends_on:
-      - master
-      - slave
-      - redis
-      - cache
-    networks:
-      - mynet
-
-
 volumes:
   my-db-master:
   my-db-slave:
