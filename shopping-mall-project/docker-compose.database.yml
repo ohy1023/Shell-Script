@@ -77,22 +77,6 @@ services:
     networks:
       - mynet
 
-  backend:
-    container_name: backend
-    image: zvyg1023/shopping-mall
-    expose:
-      - 8080
-    ports:
-      - 8080:8080
-    restart: always
-    depends_on:
-      - master
-      - slave
-      - redis
-      - cache
-    networks:
-      - mynet
-
 
 # 컨테이너에서 사용할 볼륨의 이름을 정의한다.
 volumes:
